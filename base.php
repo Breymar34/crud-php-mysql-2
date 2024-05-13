@@ -26,6 +26,14 @@ class Crud{
             echo "Connection closed";
         }
     }
+
+    public function add($fn,$ln,$course)
+    {
+        $query = mysqli_query($this->conn,"INSERT INTO student(`fn`,`ln`,`course`) VALUES('$fn','$ln','$course')");
+        if($query){echo "Record added!";}
+        else{echo "Error!";}
+    }
 }
 
 $crud = new Crud();
+$crud->add('Juan','Santos','BSIT');
